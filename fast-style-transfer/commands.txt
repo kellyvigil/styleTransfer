@@ -1,0 +1,11 @@
+spell run --mount runs/4/fast-style-transfer/data/:datasets \
+            --machine-type CPU \
+            --framework tensorflow \
+            --apt ffmpeg \
+            --pip moviepy \
+  "python style.py \
+  --checkpoint-dir ckpt \
+  --style img/style/ref.jpg \
+  --style-weight 1.5e2 \
+  --train-path datasets/train2014 \
+  --vgg-path datasets/imagenet-vgg-verydeep-19.mat"
